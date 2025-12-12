@@ -1,23 +1,27 @@
-/* Container */
+/* ==========================================================================
+   ESTILOS GENERALES (HEADER, HERO, NAV)
+   ========================================================================== */
+
 .headerFinal-container {
-  /* font-family: 'Work Sans'; */
   width: 100%;
   position: relative;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* Top Navigation Bar */
+/* --- Top Navigation Bar (Desktop) --- */
 .headerFinal-topNav {
   background-color: #ffffff;
   border-bottom: 1px solid #e5e7eb;
   position: sticky;
   top: 0;
   z-index: 50;
+  transition: all 0.3s ease;
 }
 
 .headerFinal-topNavContent {
-  max-width: 90%;
+  max-width: 1400px; 
   margin: 0 auto;
-  padding: 0.75rem 1.5rem;
+  padding: 0.5rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -45,10 +49,12 @@
 .headerFinal-navLinks {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
   list-style: none;
   margin: 0;
   padding: 0;
+  margin-left: 800px;
+  margin-right: -200px;
 }
 
 .headerFinal-navLink {
@@ -64,7 +70,7 @@
 }
 
 .headerFinal-loginBtn {
-  background-color: #33542999;
+  background-color: #335429;
   color: #ffffff;
   border: none;
   padding: 0.625rem 1.5rem;
@@ -79,8 +85,14 @@
   background-color: #059669;
 }
 
-.headerFinal-mobileMenuBtn {
+/* --- Elementos Móviles (Ocultos en Desktop) --- */
+.headerFinal-mobileMenuBtn,
+.headerFinal-mobileUser,
+.search-btn-mobile-big {
   display: none;
+}
+
+.headerFinal-mobileMenuBtn {
   background: none;
   border: none;
   color: #1f2937;
@@ -88,14 +100,29 @@
   padding: 0.5rem;
 }
 
-/* Mobile Menu */
+.headerFinal-mobileUser {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-size: 10px;
+  gap: 4px;
+  cursor: pointer;
+}
+
+/* --- Mobile Menu Dropdown --- */
 .headerFinal-mobileMenu {
-  display: none;
+  display: none; 
   background-color: #ffffff;
   border-bottom: 1px solid #e5e7eb;
   padding: 1rem 1.5rem;
   flex-direction: column;
   gap: 1rem;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 49;
 }
 
 .headerFinal-mobileMenuItem {
@@ -120,20 +147,22 @@
   text-align: center;
 }
 
-/* Hero Section */
+/* --- Hero Section --- */
 .headerFinal-hero {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 650px;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .headerFinal-heroImageWrapper {
   position: absolute;
   inset: 0;
+  overflow: hidden;
+  z-index: 0;
 }
 
 .headerFinal-heroImage {
@@ -148,8 +177,9 @@
   background: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0.3),
-    rgba(0, 0, 0, 0.5)
+    rgba(0, 0, 0, 0.4)
   );
+  z-index: 1;
 }
 
 .headerFinal-heroContent {
@@ -170,259 +200,388 @@
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Search Form */
-.headerFinal-searchForm {
-  background-color: #ffffff;
-  border-radius: 3rem;
-  padding: 0.75rem;
+/* ==========================================================================
+   ESTILOS DEL BUSCADOR (DESKTOP)
+   ========================================================================== */
+
+.search-bar-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+  position: relative;
+}
+
+.search-bar {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  max-width: 900px;
-  margin: 0 auto;
+  background: white;
+  border: 1px solid #dddddd;
+  border-radius: 40px;
+  height: 66px;
+  position: relative;
+  max-width: 850px;
+  width: 100%;
+  color: black;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-.headerFinal-searchGroup {
+.search-item {
   flex: 1;
+  padding: 14px 24px;
+  border-radius: 32px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+  text-align: left;
+  border: 1px solid transparent;
+}
+
+.search-item-content {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0 1rem;
-  border-right: 1px solid #e5e7eb;
+  gap: 14px;
+  height: 100%;
 }
 
-.headerFinal-searchGroup:last-of-type {
-  border-right: none;
+.input-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #484848;
+  min-width: 24px;
 }
 
-.headerFinal-searchIcon {
-  color: #6b7280;
-  flex-shrink: 0;
+.search-text-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
 }
 
-.headerFinal-searchInput {
-  flex: 1;
-  border: none;
-  outline: none;
-  font-size: 0.9375rem;
-  color: #1f2937;
+.search-item-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.search-item:hover { background-color: rgba(0, 0, 0, 0.04); }
+.search-item.active { background-color: white; box-shadow: 0 6px 20px rgba(0,0,0,0.1); z-index: 20; }
+
+.search-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #000;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.search-input-text {
+  font-size: 0.875rem;
+  color: #222;
   background: transparent;
-}
-
-.headerFinal-searchInput::placeholder {
-  color: #9ca3af;
-}
-
-.headerFinal-searchBtn {
-  background-color: #33542999;
   border: none;
+  width: 100%;
+  outline: none;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 400;
+}
+
+.search-input-text::placeholder { color: #6a6a6a; }
+
+.divider {
+  width: 1px;
+  height: 32px;
+  background-color: #dddddd;
+}
+
+.search-btn-container { padding-left: 10px; }
+
+.search-btn {
+  background-color: #335429;
+  color: white;
+  border: none;
+  height: 48px;
+  width: 48px;
   border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background-color 0.2s;
-  flex-shrink: 0;
-  color: #ffffff;
+  transition: transform 0.2s, background-color 0.2s;
 }
 
-.headerFinal-searchBtn:hover {
-  background-color: #059669;
+.search-btn:hover { background-color: #059669; transform: scale(1.05); }
+
+/* --- Dropdowns (Desktop) --- */
+.dropdown-panel {
+  position: absolute; top: 120%; left: 0; background: white; border-radius: 24px;
+  padding: 24px; box-shadow: 0 8px 28px rgba(0,0,0,0.15); z-index: 100;
+  cursor: default; text-align: left; color: #1f2937;
 }
 
-/* Categories - Desktop */
-.headerFinal-categories {
-  background-color: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
-  padding: 1.5rem 0;
+.location-dropdown { min-width: 350px; }
+.counters-dropdown { min-width: 320px; }
+.calendar-dropdown {
+  width: auto; min-width: 660px; left: 50%; transform: translateX(-50%);
+  padding: 20px; display: flex; flex-direction: column; align-items: center;
+}
+.dropdown-panel.right-aligned { left: auto; right: 0; }
+
+/* Listas y Contadores */
+.location-list { list-style: none; padding: 0; margin: 0; }
+.location-item { display: flex; align-items: center; padding: 12px; cursor: pointer; border-radius: 8px; }
+.location-item:hover { background-color: #f7f7f7; }
+.icon-box { background: #ebebeb; width: 48px; height: 48px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-size: 20px; }
+.counter-row { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid #ebebeb; }
+.counter-row:last-child { border-bottom: none; }
+.counter-info h4 { margin: 0; font-size: 16px; font-weight: 600; }
+.counter-info p { margin: 0; font-size: 13px; color: #717171; }
+.counter-controls { display: flex; align-items: center; gap: 12px; }
+.ctrl-btn { width: 32px; height: 32px; border-radius: 50%; border: 1px solid #b0b0b0; background: white; color: #717171; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+.ctrl-btn:hover:not(:disabled) { border-color: #000; color: #000; }
+
+/* Calendar Overrides */
+.rdrCalendarWrapper { border: none !important; }
+.rdrDefinedRangesWrapper { display: none !important; }
+.rdrMonth { width: 300px !important; padding: 0 10px !important; }
+.rdrSelected, .rdrInRange, .rdrStartEdge, .rdrEndEdge { background: #335429 !important; color: white !important; }
+.rdrInRange { color: #335429 !important; background: rgba(51, 84, 41, 0.1) !important; }
+.rdrDay:not(.rdrDayPassive) .rdrDayNumber:hover { background: rgba(51, 84, 41, 0.15) !important; border: 1px solid #335429; }
+.rdrMonthAndYearPickers select { font-weight: 700; color: #222; font-size: 16px; }
+
+/* Flexible Date Styles */
+.flexible-container { padding: 10px; text-align: center; width: 100%; max-width: 800px; }
+.flexible-title { font-size: 18px; font-weight: 600; margin-bottom: 20px; color: #222; }
+.duration-options { display: flex; justify-content: center; gap: 12px; margin-bottom: 40px; }
+.duration-chip { background: white; border: 1px solid #dddddd; border-radius: 30px; padding: 10px 24px; font-size: 14px; cursor: pointer; }
+.duration-chip.active { border: 2px solid #000; background-color: #f7f7f7; font-weight: 600; }
+.months-grid { display: flex; gap: 20px; overflow-x: auto; padding-bottom: 10px; justify-content: center; scrollbar-width: none; }
+.month-card { border: 1px solid #dddddd; border-radius: 16px; width: 120px; height: 120px; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; }
+.month-card.active { border: 2px solid #000; background-color: #f7f7f7; }
+.calendar-tabs-container { display: flex; justify-content: center; margin-bottom: 20px; width: 100%; }
+.calendar-tabs { background-color: #ebebeb; border-radius: 100px; padding: 4px; display: inline-flex; }
+.tab-btn { background: transparent; border: none; padding: 8px 24px; border-radius: 32px; font-size: 14px; font-weight: 500; color: #000; cursor: pointer; }
+.tab-btn.active { background-color: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1); font-weight: 600; }
+
+/* --- Categorías (Desktop) --- */
+.headerFinal-categories { background-color: #ffffff; border-bottom: 1px solid #e5e7eb; padding: 1.5rem 0; margin-top: 20px; }
+.headerFinal-categoriesList { max-width: 1400px; margin: 0 auto; padding: 0 1.5rem; display: flex; justify-content: space-between; align-items: center; list-style: none; gap: 1.5rem; }
+.headerFinal-categoryLink { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; text-decoration: none; color: #484848; }
+.headerFinal-categoryIcon { width: 3rem; height: 3rem; display: flex; align-items: center; justify-content: center; opacity: 0.7; }
+.headerFinal-categoryName { font-size: 0.875rem; font-weight: 500; }
+.headerFinal-categoriesMobile { display: none; }
+
+
+/* ==========================================================================
+   RESPONSIVE (MÓVIL - DISEÑO DE 3 ZONAS)
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  .calendar-dropdown { width: auto; left: 50%; transform: translateX(-50%); }
+  .rdrMonths { flex-direction: column; }
 }
 
-.headerFinal-categoriesList {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  list-style: none;
-  gap: 1.5rem;
-}
-
-.headerFinal-categoryItem {
-  flex: 0 0 auto;
-}
-
-.headerFinal-categoryLink {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  text-decoration: none;
-  transition: transform 0.2s;
-}
-
-.headerFinal-categoryLink:hover {
-  transform: translateY(-2px);
-}
-
-.headerFinal-categoryIcon {
-  width: 3rem;
-  height: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0.75rem;
-  /* background-color: #f3f4f6; */
-  padding: 0.5rem;
-}
-
-.headerFinal-categoryName {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #1f2937;
-}
-
-/* Categories - Mobile Scroll */
-.headerFinal-categoriesMobile {
-  display: none;
-  background-color: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
-  padding: 1rem 0;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-.headerFinal-categoriesMobile::-webkit-scrollbar {
-  display: none;
-}
-
-.headerFinal-categoriesMobile {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.headerFinal-categoriesMobileList {
-  display: flex;
-  gap: 1rem;
-  list-style: none;
-  margin: 0;
-  padding: 0 1.5rem;
-}
-
-.headerFinal-categoryMobileItem {
-  flex: 0 0 auto;
-}
-
-.headerFinal-categoryMobileLink {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.375rem;
-  text-decoration: none;
-  min-width: 4.5rem;
-}
-
-.headerFinal-categoryMobileIcon {
-  width: 2.75rem;
-  height: 2.75rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0.75rem;
-  background-color: #f3f4f6;
-  padding: 0.5rem;
-}
-
-.headerFinal-categoryMobileName {
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: #1f2937;
-  text-align: center;
-  white-space: nowrap;
-}
-
-/* Responsive Design */
 @media (max-width: 768px) {
-  .headerFinal-navLinks {
-    display: none;
+  /* --- HEADER MÓVIL (Top Bar) --- */
+  .headerFinal-topNav {
+    background-color: #ffffff;
+    border-bottom: none;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   }
+  
+  .headerFinal-topNavContent {
+    padding: 0.8rem 1.5rem;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .headerFinal-navLinks { display: none; }
 
   .headerFinal-mobileMenuBtn {
     display: block;
+    color: #586b4e;
+    padding: 0;
   }
 
-  .headerFinal-mobileMenu {
-    display: flex;
-  }
-
-  .headerFinal-logoText {
-    font-size: 0.75rem;
-  }
-
-  .headerFinal-hero {
-    height: 400px;
-  }
-
-  .headerFinal-heroTitle {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .headerFinal-searchForm {
+  .headerFinal-logo {
     flex-direction: column;
-    border-radius: 1rem;
-    padding: 1rem;
-    gap: 0.75rem;
+    align-items: center;
+    margin: 0;
+    gap: 2px;
+  }
+  .headerFinal-logoImage { width: 40px; height: 40px; border: none; }
+  .headerFinal-logoText { color: #333; font-size: 0.65rem; letter-spacing: 1px; font-weight: 700; text-transform: uppercase; }
+
+  .headerFinal-mobileUser { 
+    display: flex; 
+    color: #586b4e; 
+  }
+  .headerFinal-mobileUserText {
+    color: #333;
+    font-weight: 600;
+    margin-top: 2px;
   }
 
-  .headerFinal-searchGroup {
-    width: 100%;
-    border-right: none;
-    border-bottom: 1px solid #e5e7eb;
-    padding: 0.75rem 0.5rem;
-  }
-
-  .headerFinal-searchGroup:last-of-type {
-    border-bottom: none;
-  }
-
-  .headerFinal-searchBtn {
-    width: 100%;
-    height: 3rem;
-    border-radius: 0.5rem;
-  }
-
-  .headerFinal-categories {
-    display: none;
-  }
-
-  .headerFinal-categoriesMobile {
-    display: block;
-  }
-}
-
-@media (max-width: 480px) {
-  .headerFinal-topNavContent {
-    padding: 0.5rem 1rem;
-  }
-
-  .headerFinal-logoImage {
-    width: 40px;
-    height: 40px;
-  }
-
+  /* --- ZONA 1 y ZONA 3 (HERO SECTION + CARRUSEL) --- */
   .headerFinal-hero {
-    height: 350px;
-  }
-
-  .headerFinal-heroTitle {
-    font-size: 1.25rem;
+    /* Altura ajustada: suficiente para título + buscador + carrusel */
+    height: auto; 
+    min-height: 600px; /* Asegura que cubra pantalla vertical de celular */
+    align-items: flex-start; /* Alinea contenido al tope */
+    padding-top: 50px; /* Espacio para el título arriba */
+    padding-bottom: 120px; /* Espacio reservado para el carrusel abajo */
   }
 
   .headerFinal-heroContent {
-    padding: 0 1rem;
+    padding: 0 1.5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* TÍTULO (ZONA NARANJA) */
+  .headerFinal-heroTitle {
+    display: block;
+    font-size: 1.4rem;
+    line-height: 1.3;
+    margin-bottom: 25px;
+    margin-top: 0;
+    color: white;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+    text-align: center;
+    max-width: 90%;
+  }
+
+  /* --- ZONA 2 (TARJETA AMARILLA) --- */
+  .search-bar-container {
+    margin-top: 0;
+    padding: 0 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .search-bar {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 100%;  
+    max-width: 350px;
+    background: white;
+    border-radius: 24px;
+    border: none;
+    padding: 25px 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3); /* Sombra para efecto flotante */
+    gap: 12px;
+  }
+
+  /* Inputs tipo pastilla */
+  .search-item {
+    padding: 0 15px;
+    border-radius: 50px;
+    border: 1px solid #777; /* Borde visible gris oscuro */
+    background-color: white;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+  
+  .search-item:nth-last-child(2) { border-bottom: 1px solid #777; }
+  .search-item-content { gap: 10px; width: 100%; }
+  .input-icon svg { width: 20px; height: 20px; color: #555; }
+  .search-label { display: none; }
+  .search-input-text { font-size: 0.95rem; color: #333; font-weight: 500; }
+  .divider, .desktop-only-btn { display: none; }
+
+  /* Botón Verde Grande */
+  .search-btn-mobile-big {
+    display: flex;
+    width: 100%;
+    background-color: #6b8e5c; 
+    color: white;
+    border: none;
+    height: 48px;
+    border-radius: 50px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  /* --- ZONA 3 (CARRUSEL AZUL) --- */
+  .headerFinal-categories { display: none; }
+
+  .headerFinal-categoriesMobile {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    /* Gradiente oscuro abajo para que los iconos blancos resalten sobre cualquier imagen */
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    padding-bottom: 25px;
+    padding-top: 50px;
+    z-index: 20;
+  }
+
+  .headerFinal-categoriesMobileList { 
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding: 0 20px;
+    scrollbar-width: none;
+    align-items: center;
+  }
+  
+  .headerFinal-categoriesMobileLink {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    min-width: 65px;
+  }
+
+  /* Estilo para Iconos Blancos sobre fondo oscuro */
+  .headerFinal-categoryMobileIcon { 
+    width: 3.2rem; 
+    height: 3.2rem; 
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 14px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    margin-bottom: 6px;
+    backdrop-filter: blur(2px);
+  }
+  
+  .headerFinal-categoryMobileIcon img {
+    /* Filtro para invertir a blanco */
+    filter: brightness(0) invert(1);
+    width: 26px;
+    height: 26px;
+  }
+
+  .headerFinal-categoryMobileName { 
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+  }
+  
+  /* --- Popups Mobile --- */
+  .dropdown-panel {
+    position: fixed !important; top: 50% !important; left: 50% !important;
+    transform: translate(-50%, -50%) !important; width: 90% !important; 
+    max-width: 350px; max-height: 80vh; overflow-y: auto; 
+    box-shadow: 0 0 0 100vh rgba(0,0,0,0.6); z-index: 9999;
   }
 }
